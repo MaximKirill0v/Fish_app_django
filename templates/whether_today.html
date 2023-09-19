@@ -1,0 +1,31 @@
+{% load static %}
+
+
+    <div class="icon_whether">
+        <img class="icon_status_whether"  src={% static whether_today.path %} alt="Состояние погоды">
+    </div>
+    <div class="temperature">
+        <p class="simvol_temperature">
+            <img class="icon_temperature"  src={% static "image/logo/temperature.png" %} alt="Иконка температуры">{{whether_today.temperature}}&deg;C
+        </p>
+    </div>
+    <div class="pressure">
+        <p class="small_simvol_pressure">
+            <img class="small_icon_whether"  src={% static "image/logo/barometer.png" %} alt="Иконка давления"><b>{{whether_today.pressure}} мм.рт.столба</b>
+        </p>
+    </div>
+    <div class="humidity">
+        <p class="small_simvol">
+            <img class="small_icon_whether"  src={% static "image/logo/humidity.png" %} alt="Иконка влажности">{{whether_today.humidity}}%
+        </p>
+    </div>
+    <div class="wind">
+        <p class="small_simvol_wind">
+            <img class="small_icon_whether"  src={% static "image/logo/wind.png" %} alt="Иконка ветра"><b>{{whether_today.wind_speed}} м/с {{whether_today.wind_vector}}</b>
+        </p>
+    </div>
+    <div class="cloudiness">
+        <p class="small_simvol">
+            <img class="small_icon_whether"  src={% static "image/logo/overcast.png" %} alt="Иконка облачности">{{whether_today.cloudiness}}%
+        </p>
+    </div>        

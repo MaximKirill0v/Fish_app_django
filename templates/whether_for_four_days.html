@@ -1,0 +1,40 @@
+{% load static %}
+
+{% for whether in whether_four_days %}
+
+        <div class = "whether_day">
+            <div class="date">
+                <p>{{whether.date_}}</p>
+            </div>
+            <div class="near_icon_whether">
+                <img class="near_icon_status_whether"  src={% static whether.path %} alt="Состояние погоды">
+            </div>
+            <div class="near_temperature">
+                <p class="near_simvol_temperature">
+                    <img class="near_icon_temperature"  src={% static "image/logo/temperature.png" %} alt="Иконка температуры">{{whether.temperature}}&deg;C
+                </p>
+            </div>
+            <div class="near_pressure">
+                <p class="near_small_simvol_pressure">
+                    <img class="near_small_icon_pressure"  src={% static "image/logo/barometer.png" %} alt="Иконка давления">{{whether.pressure}} мм.
+                </p>
+            </div>
+            <div class="near_humidity">
+                <p class="near_small_simvol_humidity">
+                    <img class="near_small_icon_whether_humidity"  src={% static "image/logo/humidity.png" %} alt="Иконка влажности">{{whether.humidity}} %
+                </p>
+            </div>
+            <div class="near_wind">
+                <p class="near_small_simvol_wind">
+                    <img class="near_small_icon_wind"  src={% static "image/logo/wind.png" %} alt="Иконка ветра">{{whether.wind_speed}} <b>м/с {{whether.wind_vector}}</b>
+                </p>
+            </div>
+            <div class="near_cloudiness">
+                <p class="near_small_simvol_cloudiness">
+                    <img class="near_small_icon_cloudiness"  src={% static "image/logo/overcast.png" %} alt="Иконка облачности">{{whether.cloudiness}} %
+                </p>
+            </div>
+
+        </div>
+
+{% endfor %}

@@ -1,0 +1,22 @@
+{% extends "base_page.html" %}
+{% load static %}
+
+{% block content %}
+<div class="weather_and_map">
+
+    <div class="weather_parameters">
+        {% include 'whether_today.html' %}
+    </div>
+    
+
+    <div class="map">
+            {% include 'map.html' %}
+
+    </div>
+
+</div>
+
+<div class="weather_for_four_days">
+    {% include 'whether_for_four_days.html' %}
+</div>
+{% endblock content %}
