@@ -1,0 +1,15 @@
+{% extends 'base_page.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    {% include 'header_form.html' %}
+    <div class="container mt-5 w-50 p-3 border rounded-3 border-2 border-primary-subtle text-white bg-dark ">
+        <h4 class="container mb-3 text-light">Регистрация нового пользователя</h4>
+        <form action="{% url 'registration' %}" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-light">Зарегистрироваться</button>
+        </form>
+    </div>
+{% endblock content %}

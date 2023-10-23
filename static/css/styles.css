@@ -2,16 +2,33 @@
     color: white !important;
 }
 
-
 body{
     background-image: url('../image/background/background_1.jpg');
     background-size: 100%;
     background-repeat: no-repeat;
+    height: 100%;
 }
+
+.city_name{
+    font-family: 'Trebuchet MS', 'serif';
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    padding-top: 10px;
+    }
 
 .weather_and_map{
     width: 90%;
     height: 450px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+    position: relative;
+}
+
+.button_catch_and_map{
+    width: 90%;
+    height: 600px;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 1%;
@@ -38,12 +55,25 @@ body{
     top: 10%;
 }
 
-.footer{
+.content {
+    min-height: calc(86vh - 50px);
+}
+
+.footer_1{
     background-color: rgb(33, 35, 35);
     color: white;
     text-align: center;
+    height: 50px;
     padding-top: 15px;
-    height: 7%;
+}
+
+.footer_text_1{
+    text-decoration: none;
+    color: #666;
+}
+
+.footer_text_1:hover{
+    color: white;
 }
 
 .icon_whether{
@@ -189,7 +219,7 @@ body{
     font-size: 16px;
 }
 
- .near_icon_whether{
+.near_icon_whether{
     width: 50%;
     height: 40%;
     padding-top: 5%;
@@ -326,4 +356,8 @@ body{
     padding-left: 45%;
     padding-top: 22%;
     vertical-align: middle;
+}
+
+.button_cath:hover{
+    color: white !important;
 }

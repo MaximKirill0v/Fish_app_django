@@ -1,7 +1,20 @@
 {% extends "base_page.html" %}
 {% load static %}
 
+
+
 {% block content %}
+
+{% include 'header_main.html' %}
+
+    {% autoescape off %}
+    {{ notification }}
+    {% endautoescape %}
+
+
+
+<h3 class="city_name">Погода в городе <b>{{ city_name }}</b></h3>
+
 <div class="weather_and_map">
 
     <div class="weather_parameters">
@@ -10,8 +23,7 @@
     
 
     <div class="map">
-            {% include 'map.html' %}
-
+            {% include 'map_on_main.html' %}
     </div>
 
 </div>
@@ -19,4 +31,6 @@
 <div class="weather_for_four_days">
     {% include 'whether_for_four_days.html' %}
 </div>
+
+<div> {% include 'footer.html' %} </div>
 {% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'base_page.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+    {% include 'header_form.html' %}
+
+    {% autoescape off %}
+    {{ notification }}
+    {% endautoescape %}
+
+    <div class="map" style="margin-top: 0.5%; width: 45%; height: 70%; color: white; text-align: center;">
+        <h3>Кликните по карте в месте, где поймали рыбу</h3>
+        {% include 'map_on_add_catch.html' %}
+    </div>
+
+    <div class="container mt-5 w-45 p-3 border rounded-3 border-2 border-primary-subtle text-white bg-dark" style="margin-left: 5%; width: 45%; height: 50%;">
+        <h4 class="container mb-3 text-white">Заполните поля, чтобы добавить улов</h4>
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-light">Добавить</button>
+        </form>
+    </div>
+
+
+{% endblock content %}

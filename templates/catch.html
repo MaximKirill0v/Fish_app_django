@@ -1,5 +1,56 @@
-{% extends "base_page.html" %}
+<!DOCTYPE html>
+{% load static %}
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static "css/bootstrap.css" %}" />
+        <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+    </head>
 
-{% block content %}
-    <h1> Мой улов </h1>
-{% endblock content %}
+    <body>
+        {% include 'header_catch.html' %}
+
+
+        {% if messages %}
+            {% for message in messages %}
+
+        <div class="alert alert-dark d-flex alert-dismissible pl-5" role="alert" style="display: block; float: right; margin-right: 12%; width: 27%;">
+            <strong>{{ message }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding-top: 5%;"></button>
+        </div>
+
+            {% endfor %}
+        {% endif %}
+
+        {% if request.user.is_authenticated %}
+        <div class="button_catch_and_map">
+            <h1 style="color: white; text-align: center;"></h1>
+            <div class="btn-group-vertical" role="group" aria-label="Toolbar with button groups" style="margin-top: 15%; margin-left: 5%; width: 40%; height: 50%; text-align: center; color: white; padding-top: px;">
+                <a class="nav-link" href={% url 'add_catch' %}>
+                    <button type="button" class="btn btn-dark btn-lg mt-3 rounded w-100 button_cath">Добавить улов</button>
+                </a>
+                <button type="button" class="btn btn-dark btn-lg mt-3 rounded button_cath">Удалить улов</button>
+                <button type="button" class="btn btn-dark btn-lg mt-3 rounded button_cath">Поменять данные о улове</button>
+            </div>
+
+            <div class="map">
+                {% include 'map_on_catch.html' %}
+            </div>
+        </div>
+
+        {% else %}
+            <div style="margin-top: 17%; width: 50%; height: 50%; text-align: center; vertical-align: middle; color: white;">
+                <h1><b>Авторизуйтесь, чтобы открыть весь функционал приложения.</b></h1>
+            </div>
+
+            <div class="map" style="margin-top: 10%; width: 50%; height: 50%;">
+                {% include 'map_on_main.html' %}
+            </div>
+
+        {% endif %}
+
+
+    </body>
+    <div style="margin-top: 50px;">{% include 'footer.html' %}</div>
+
+</html>
